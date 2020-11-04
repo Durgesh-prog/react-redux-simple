@@ -14,7 +14,7 @@ function B() {
     <div >
 	  <p>I am Component B and I have imported Timer</p>
 	  <Timer />
-	  <button onClick={() => dispatch(stopTimer())} >Click Me </button>
+	  <button onClick={() => dispatch(stopTimer())} >Click Me {appState?'Stop':'Restart'} </button>
     </div>
   );
 }

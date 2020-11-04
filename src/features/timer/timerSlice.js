@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+let myInterval;
+
 export const timerSlice = createSlice({
   name: 'timer',
   initialState: {
-    count:10,
+    count:0,
 	runningTimer:true
   },
   reducers: {
@@ -11,14 +13,20 @@ export const timerSlice = createSlice({
       state.count += 1;
     },
 	stopTimer:state => {
-		state.runningTimer = false;
+		if(state.runningTimer){
+			state.runningTimer = false;
+			clearInterval(myInterval);
+		}else{
+			state.count = 0;
+			state.runningTimer = true;
+		} 
 	}
   }
 });
 
 
 export const incrementTimer = () => (dispatch,getState) => {
- 		 setInterval(() => {
+ 		myInterval =  setInterval(() => {
 			if(getState().timer.runningTimer) dispatch(update())
 		  },1000);
 

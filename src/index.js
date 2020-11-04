@@ -19,7 +19,7 @@ ReactDOM.render(
 						<Link style={{textDecoration:'none',marginRight:'10px'}}  to='/timer'>Component Timer</Link>
 				  </header>
 				  
-				  <Redirect from='/' to='/timer' />
+				  <Redirect from='/' to='/A' />
 				<Switch>
 					<Route exact path='/A' component={A} />
 					<Route exact path='/B' component={B} />
